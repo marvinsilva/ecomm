@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form method='POST'>
+        {% csrf_token %}
+
+        <h1>Você realmente deseja deletar o produto "{{ product.name|capfirst }}"?</h1>
+        <p>
+            <input type='submit' value=' Sim, deletar produto '/>
+            <a href="{% url 'products:list' %}"> Cancelar </a>
+        </p>
+
+    </form>
+
+{% endblock %}

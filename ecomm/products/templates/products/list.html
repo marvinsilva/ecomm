@@ -26,12 +26,12 @@
                         <td>{{ product.price }} R$</td>
                         <td>{{ product.description }}</td>
                         <td>{{ product.category.name }}</td>
-{#                        <td>#}
-{#                            <div class="btn-group" role="group" aria-label="Basic example">#}
-{#                                <a href="{% url 'products:update' product.pk %}" class="btn btn-warning"><i class="fas fa-edit"></i></a>#}
-{#                                <a href="{% url 'products:delete' product.pk %}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>#}
-{#                            </div>#}
-{#                        </td>#}
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="{% url 'products:update' product.pk %}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{% url 'products:delete' product.pk %}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                        </td>
                     </tr>
                 {% empty %}
                     <tr>
