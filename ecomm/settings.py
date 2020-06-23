@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third part apps
     'rest_framework',
+    'rest_framework.authtoken',
     # my project apps
     'ecomm.products',
     'ecomm.drf'

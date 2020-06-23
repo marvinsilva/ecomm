@@ -5,7 +5,10 @@ from rest_framework import mixins
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
+from ecomm.drf.permissions import OnlyAdminCanCreate
 from ecomm.drf.serializers import (
     ProductModelSerializer,
     CategoryModelSerializer,
@@ -28,6 +31,9 @@ class CategoryListOnlyAPIView(mixins.ListModelMixin, generics.GenericAPIView):
 
 
 class OrderAPIView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated, OnlyAdminCanCreate]
+
     def post(self, request, pk=None, format=None):
         serializer = OrderModelSerializer(data=request.data)
         if serializer.is_valid():
